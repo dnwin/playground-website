@@ -1,5 +1,5 @@
-Playground MEAN Stack/Node.js/Express Server
+Playground LAMP/Node.js/Express Server
 =================
 
-* OS: Vagrant Ubuntu MEAN stack using scotch.io
-* Used as a web developement platform for testing.
+* OS: box.scotch.io Vagrant Ubuntu LAMP stack with Node.js/Express installed.
+* Used as a web development platform for testing.
