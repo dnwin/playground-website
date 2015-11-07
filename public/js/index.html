@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <div id="output">
+        <p>Javascript Testing: </p><br>
+    </div>
+    <script type="text/javascript">
+
+
+
+        (function()
+        {
+            var s = "01234asdf";
+
+            print(s.charCodeAt(2));
+X
+            function print(string) {
+                string = String(string);
+                // $('#output p:last').after($('<p>' + string + '</p>'));
+                var el = document.getElementById("output");
+
+                var p = document.createElement("p");
+                p.textContent = string;
+
+                el.appendChild(p)
+            }
+
+        })();
+</script>
+</body>
+
+
+       </html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="output">
+    <p>Javascript Testing: </p><br>
+</div>
+<script type="text/javascript">
+
+
+
+    (function()
+    {
+        // List ADT
+        function List() {
+            this.dataStore = [];
+            this.listSize = 0;
+            this.pos = 0;
+            this.append = append;
+            this.remove = remove;
+
+            this.find = find;
+            this.length = length;
+            this.toString = toString;
+            this.insert = insert;
+            this.clear = clear;
+
+            // traverse
+
+            this.front = front;
+            this.end = end;
+            this.next = next;
+            this.prev = prev;
+            this.currPos = currPos;
+            //this.moveTo = moveTo;
+            this.getElement = getElement;
+
+
+        }
+
+        function currPos() {
+            return this.pos;
+        }
+
+        function moveTo(newPos) {
+            this.pos = newPos;
+        }
+
+        function getElement() {
+            return this.dataStore[this.pos];
+        }
+
+        function front() {
+            this.pos = 0;
+        }
+
+        function end() {
+            this.pos = this.listSize;
+        }
+
+        function next() {
+            if (this.pos < this.listSize) {
+                ++this.pos;
+            }
+        }
+
+        function prev() {
+            if (this.pos > 0) {
+                --this.pos;
+            }
+        }
+
+        // append to the list
+        function append(element) {
+            this.dataStore[this.listSize++] = element;
+        }
+
+
+        function find(element) {
+            return this.dataStore.indexOf(element);
+
+        }
+
+        function remove(element) {
+            var foundAt = this.find(element);
+
+            if (foundAt > -1) {
+                this.dataStore.splice(foundAt, 1);
+                this.listSize--;
+                return true;
+            }
+            return false;
+        }
+
+        function length() {
+            return this.listSize;
+        }
+
+        function toString() {
+            return this.dataStore;
+        }
+
+        function insert(element, after) {
+
+            var foundAt = this.find(after);
+
+            if (foundAt > -1) {
+                this.dataStore.splice(foundAt + 1, 0, element);
+                ++this.listSize;
+                return true;
+            }
+
+            return false;
+        }
+
+        function clear() {
+            this.dataStore = [];
+            this.listSize = this.pos = 0;
+
+        }
+
+
+        var list = new List();
+        list.append('a');
+        list.append('b');
+        list.append('c');
+
+        list.insert('x', 'c');
+
+        list.front();
+        print(list.getElement());
+
+        list.next();
+        print(list.getElement());
+
+        print(list.currPos());
+
+        print(list.length());
+
+        // For
+        list.front();
+
+        debugger;
+        while (list.currPos() < list.listSize) {
+            print(list.getElement());
+            list.next();
+        }
+        print("test");
+
+
+        function print(string) {
+            string = String(string);
+            // $('#output p:last').after($('<p>' + string + '</p>'));
+            var el = document.getElementById("output");
+
+            var p = document.createElement("p");
+            p.textContent = string;
+
+            el.appendChild(p)
+        }
+
+    })();
+</script>
+</body>
+
+
+</html>
