@@ -18,29 +18,28 @@ connection.connect(function(err){
     }
 });
 
-// Configure public directory
-app.use("/", express.static(__dirname + '/public'));
+
+var data = {};
+connection.query('SELECT * from test_table LIMIT 2', function(err, rows, fields) {
+    connection.end();
+    if (!err) {
+        console.log('The solution is: ', data.records = rows);
+    }
+    else {
+    console.log('Error while performing Query.');
+    }
+});
+
+
+
 
 app.get("/",function(req,res){
-    connection.query('SELECT * from test_table LIMIT 2', function(err, rows, fields) {
-        connection.end();
-        if (!err)
-            console.log('The solution is: ', rows);
-        else
-            console.log('Error while performing Query.');
-
-        //response.writeHead(200, {"Content-Type": "text/plain"});
-        //
-        //response.write("Hello World\n" + rows[0].name);
-        //response.end();
-        //
-        //
-    });
+        res.sendFile(__dirname + '/public/index.html');
 });
 
 app.get("/test", function(req,res) {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 
-app.listen(80);
+app.listen(3000);
