@@ -7,6 +7,6 @@ Playground LAMP/Node.js/Express Server
 ### /public/
 * Folder to the LAMP server for testing.
 
-### /nodejs/chatrooms/(/nodejs/chatrooms/)
+### [/nodejs/chatrooms/](/nodejs/chatrooms/)
 * Chatroom application using node.js and socket.io
 * Users can join rooms, have unique nicknames.
