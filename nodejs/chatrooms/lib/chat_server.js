@@ -5,7 +5,7 @@ var socketio = require('socket.io');
 
 
 var io;
-var guestNumber;
+var guestNumber = 1;
 var nickNames = {};
 var namesUsed = [];
 var currentRoom = {};
@@ -15,7 +15,6 @@ exports.listen = function(server) {
 
     // Start socketio server, allowing it to piggy back off existing HTTP server
     io = socketio.listen(server);
-    io.set('log level', 1);
 
     // Define how each user connection will be handled
     io.sockets.on('connection', function (socket) {
@@ -32,6 +31,8 @@ exports.listen = function(server) {
         socket.on('rooms', function() {
             socket.emit('rooms', io.sockets.manager.rooms);
         });
+
+        handleClientDisconnection(socket, nickNames, namesUsed);
     })
 };
 
@@ -90,4 +91,72 @@ function joinRoom(socket, room) {
             });
         }
     }
+}
+
+// Set listeners on the socket for 'nameAttempt'
+function handleNameChangeAttempts(socket, nickNames, namesUsed) {
+    // Add listener to nameAttempt events
+    socket.on('nameAttempt', function(name) {
+        // Reject names that begin with Guest
+        if (name.indexOf('Guest') == 0) {
+            socket.emit('nameResult', {
+                success: false,
+                name: name
+            });
+        } else { // If name is not taken
+            if (namesUsed.indexOf(name) == -1) {
+                var previousName = nickNames[socket.id];
+                // Save index of current name
+                var previousNameIndex = namesUsed.indexOf(previousName);
+                namesUsed.push(name);
+                nickNames[socket.id] = name;
+
+                // Remove previous name to make it available to clients
+                delete namesUsed[previousNameIndex];
+                socket.emit('nameResult', {
+                    success: true,
+                    name: name
+                });
+                //Broadcast event to everyone in the same room.
+                socket.broadcast.to(currentRoom[socket.id]).emit('message', {
+                    text: previousName + ' isnow known as ' + name + '.'
+                })
+            } else { // Error: name already in use
+                socket.emit('nameResult', {
+                    success: false,
+                    message: 'That name is already in use.'
+                })
+
+            }
+        }
+    })
+}
+
+// Take in a message event for the room, broadcast this message to everyone else in the same room
+// Message object will contain a message and current room.
+function handleMessageBroadcasting(socket) {
+    socket.on('message', function(message) {
+        socket.broadcast.to(message.room).emit('message', {
+            text: nickNames[socket.id] + ": " + message.text
+        });
+    });
+}
+
+// Creating or joining a room.
+function handleRoomJoining(socket) {
+    socket.on('join', function(room){
+        // Leave the socket group
+        socket.leave(currentRoom[socket.id]);
+        joinRoom(socket, room);
+    });
+}
+
+// Handle disconnections when user leaves chat, free up names.
+function handleClientDisconnection(socket) {
+    socket.on('disconnect', function() {
+        // Free up the name of disconnected user
+        var nameIndex = namesUsed.indexOf(nickNames[socket.id]);
+        delete namesUsed[nameIndex];
+        delete nickNames[socket.id];
+    });
 }
