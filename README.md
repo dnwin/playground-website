@@ -15,4 +15,4 @@ Playground LAMP/Node.js/Express Server
 * Displays an html file and replaces % with data from a json file.
 
 #### [/nodejs/serial_flow_control](/nodejs/examples/serial_flow_control)
-* Outputs a single articles title and URL from RSS feed to demonstrate serial control.
+* Output titles and URLS from a RSS feed. Demonstrates serial control using ```next(err, param)```
