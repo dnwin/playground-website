@@ -16,3 +16,6 @@ Playground LAMP/Node.js/Express Server
 
 #### [/nodejs/serial_flow_control](/nodejs/examples/serial_flow_control)
 * Output titles and URLS from a RSS feed. Demonstrates serial control using ```next(err, param)```
+
+#### [/nodejs/parallel_flow_control](/nodejs/examples/parallel_flow_control)
+* Counts word count after all text files are counted. Demonstrates serial flow control using ```checkIfComplete()```
