@@ -1,42 +1,98 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'sqlite',
+1 verbose cli   '--save' ]
 2 info using npm@3.3.6
 3 info using node@v5.0.0
-4 verbose run-script [ 'prestart', 'start', 'poststart' ]
-5 info lifecycle tldr@1.0.0~prestart: tldr@1.0.0
-6 silly lifecycle tldr@1.0.0~prestart: no script for prestart, continuing
-7 info lifecycle tldr@1.0.0~start: tldr@1.0.0
-8 verbose lifecycle tldr@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle tldr@1.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/var/www/nodejs/tldr/node_modules/.bin:~/.composer/vendor/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/shims:/home/vagrant/.rbenv/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/shims:/home/vagrant/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-10 verbose lifecycle tldr@1.0.0~start: CWD: /var/www/nodejs/tldr
-11 silly lifecycle tldr@1.0.0~start: Args: [ '-c', 'node index.js' ]
-12 silly lifecycle tldr@1.0.0~start: Returned: code: 137  signal: null
-13 info lifecycle tldr@1.0.0~start: Failed to exec start script
-14 verbose stack Error: tldr@1.0.0 start: `node index.js`
-14 verbose stack Exit status 137
-14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:233:16)
-14 verbose stack     at emitTwo (events.js:87:13)
-14 verbose stack     at EventEmitter.emit (events.js:172:7)
-14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
-14 verbose stack     at emitTwo (events.js:87:13)
-14 verbose stack     at ChildProcess.emit (events.js:172:7)
-14 verbose stack     at maybeClose (internal/child_process.js:818:16)
-14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
-15 verbose pkgid tldr@1.0.0
-16 verbose cwd /var/www/nodejs/tldr
-17 error Linux 3.13.0-55-generic
-18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
-19 error node v5.0.0
-20 error npm  v3.3.6
-21 error code ELIFECYCLE
-22 error tldr@1.0.0 start: `node index.js`
-22 error Exit status 137
-23 error Failed at the tldr@1.0.0 start script 'node index.js'.
-23 error This is most likely a problem with the tldr package,
-23 error not with npm itself.
-23 error Tell the author that this fails on your system:
-23 error     node index.js
-23 error You can get their info via:
-23 error     npm owner ls tldr
-23 error There is likely additional logging output above.
-24 verbose exit [ 1, true ]
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData sqlite
+8 silly fetchNamedPackageData sqlite
+9 silly mapToRegistry name sqlite
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/sqlite
+13 verbose request uri https://registry.npmjs.org/sqlite
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 7:43:34 AM
+16 verbose request id 69f23ff0318c5f3b
+17 http request GET https://registry.npmjs.org/sqlite
+18 http 404 https://registry.npmjs.org/sqlite
+19 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+19 verbose headers   etag: '"EWN7W206VQ5EY1B35LEQ0J5B2"',
+19 verbose headers   'content-type': 'application/json',
+19 verbose headers   'cache-control': 'max-age=0',
+19 verbose headers   'content-length': '480',
+19 verbose headers   'accept-ranges': 'bytes',
+19 verbose headers   date: 'Wed, 25 Nov 2015 07:46:09 GMT',
+19 verbose headers   via: '1.1 varnish',
+19 verbose headers   age: '0',
+19 verbose headers   connection: 'keep-alive',
+19 verbose headers   'x-served-by': 'cache-sjc3127-SJC',
+19 verbose headers   'x-cache': 'MISS',
+19 verbose headers   'x-cache-hits': '0',
+19 verbose headers   'x-timer': 'S1448437569.488299,VS0,VE40',
+19 verbose headers   vary: 'Accept' }
+20 silly get cb [ 404,
+20 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+20 silly get     etag: '"EWN7W206VQ5EY1B35LEQ0J5B2"',
+20 silly get     'content-type': 'application/json',
+20 silly get     'cache-control': 'max-age=0',
+20 silly get     'content-length': '480',
+20 silly get     'accept-ranges': 'bytes',
+20 silly get     date: 'Wed, 25 Nov 2015 07:46:09 GMT',
+20 silly get     via: '1.1 varnish',
+20 silly get     age: '0',
+20 silly get     connection: 'keep-alive',
+20 silly get     'x-served-by': 'cache-sjc3127-SJC',
+20 silly get     'x-cache': 'MISS',
+20 silly get     'x-cache-hits': '0',
+20 silly get     'x-timer': 'S1448437569.488299,VS0,VE40',
+20 silly get     vary: 'Accept' } ]
+21 silly fetchPackageMetaData Error: Registry returned 404 for GET on https://registry.npmjs.org/sqlite
+21 silly fetchPackageMetaData     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+21 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:242:14)
+21 silly fetchPackageMetaData     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+21 silly fetchPackageMetaData     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+21 silly fetchPackageMetaData     at emitTwo (events.js:87:13)
+21 silly fetchPackageMetaData     at Request.emit (events.js:172:7)
+21 silly fetchPackageMetaData     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1063:14)
+21 silly fetchPackageMetaData     at emitOne (events.js:82:20)
+21 silly fetchPackageMetaData     at Request.emit (events.js:169:7)
+21 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+21 silly fetchPackageMetaData  error for sqlite { [Error: Registry returned 404 for GET on https://registry.npmjs.org/sqlite] pkgid: 'sqlite', statusCode: 404, code: 'E404' }
+22 silly rollbackFailedOptional Starting
+23 silly rollbackFailedOptional Finishing
+24 silly runTopLevelLifecycles Starting
+25 silly runTopLevelLifecycles Finishing
+26 silly install printInstalled
+27 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/sqlite
+27 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+27 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:242:14)
+27 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+27 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+27 verbose stack     at emitTwo (events.js:87:13)
+27 verbose stack     at Request.emit (events.js:172:7)
+27 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1063:14)
+27 verbose stack     at emitOne (events.js:82:20)
+27 verbose stack     at Request.emit (events.js:169:7)
+27 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+28 verbose statusCode 404
+29 verbose pkgid sqlite
+30 verbose cwd /var/www/nodejs/examples/restful_api
+31 error Linux 3.13.0-55-generic
+32 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "sqlite" "--save"
+33 error node v5.0.0
+34 error npm  v3.3.6
+35 error code E404
+36 error 404 Registry returned 404 for GET on https://registry.npmjs.org/sqlite
+36 error 404
+36 error 404 'sqlite' is not in the npm registry.
+36 error 404 You should bug the author to publish it (or use the name yourself!)
+36 error 404
+36 error 404 Note that you can also install from a
+36 error 404 tarball, folder, http url, or git url.
+37 verbose exit [ 1, true ]
