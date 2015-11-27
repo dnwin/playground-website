@@ -22,3 +22,6 @@ Playground LAMP/Node.js/Express Server
 
 #### [parallel_flow_control](/nodejs/examples/parallel_flow_control)
 * Counts word count after all text files are counted. Demonstrates serial flow control using ```checkIfComplete()```
+
+#### [middleware](/nodejs/examples/middleware)
+* Examples of logger, error, authentication middleware using connect.
