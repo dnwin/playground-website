@@ -25,3 +25,6 @@ Playground LAMP/Node.js/Express Server
 
 #### [middleware](/nodejs/examples/middleware)
 * Examples of logger, error, authentication middleware using connect.
+
+#### [simple cli](/nodejs/examples/storage/cli_tasks.js)
+* Command line script to add and list tasks. Saves to a file in the current working directory.
