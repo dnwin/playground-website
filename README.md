@@ -1,4 +1,4 @@
-Playground LAMP/Node.js/Express Server
+Playground Web Server
 =================
 * Linux web server used for local testing.
 * OS: Ubuntu LAMP stack with Node.js/Express installed using Vagrant (box.scotch.io)
@@ -7,9 +7,16 @@ Playground LAMP/Node.js/Express Server
 ####` [/public](/public/)
 * Folder to the LAMP server on port 80.
 
+---
+
+### Node.js
+
 #### [/nodejs/chatrooms](/nodejs/chatrooms/)
 * Chatroom application using node.js and socket.io
 * Users can join rooms, have unique nicknames.
+
+#### [mysql_rest_module](/nodejs/examples/mysql_module)
+* CRUD page using a mysql REST module.
 
 #### [basic_restful_api](/nodejs/examples/restful_api)
 * Demonstrates a basic REST Api using ```express``` and ```body-parser```
@@ -26,5 +33,5 @@ Playground LAMP/Node.js/Express Server
 #### [middleware](/nodejs/examples/middleware)
 * Examples of logger, error, authentication middleware using connect.
 
-#### [simple cli](/nodejs/examples/storage/cli_tasks.js)
+#### [simple cli](/nodejs/examples/storage/1)
 * Command line script to add and list tasks. Saves to a file in the current working directory.
