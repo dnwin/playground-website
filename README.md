@@ -1,10 +1,10 @@
 Playground Web Server
 =================
-* Linux web server used for local testing.
-* OS: Ubuntu LAMP stack with Node.js/Express installed using Vagrant (box.scotch.io)
+* OS: ScotchBox Ubuntu Server using Vagrant (box.scotch.io)
+* Installed: LAMP Stack, Node, express-generator, npm, nodemon, gulp, grunt, yeoman, mongodb, postgresql
 
 
-####` [/public](/public/)
+#### [Apache Static Folder](/public/)
 * Folder to the LAMP server on port 80.
 
 ---
@@ -13,13 +13,16 @@ Playground Web Server
 
 #### [/nodejs/chatrooms](/nodejs/chatrooms/)
 * Chatroom application using node.js and socket.io
-* Users can join rooms, have unique nicknames.
+* Users can join rooms, have unique nicknames.  
 
 #### [mysql_rest_module](/nodejs/examples/mysql_module)
 * CRUD page using a mysql REST module.
 
 #### [basic_restful_api](/nodejs/examples/restful_api)
 * Demonstrates a basic REST Api using ```express``` and ```body-parser```
+
+#### [multithreading with clusters](/nodejs/examples/clusters)
+* Cluster module forking
 
 #### [template_replace](/nodejs/examples/template_replace/)
 * Displays an html file and replaces % with data from a json file.
